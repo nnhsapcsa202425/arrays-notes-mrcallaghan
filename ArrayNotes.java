@@ -3,8 +3,8 @@ import java.util.GregorianCalendar;
 /**
  * Write a description of class Notes here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author mrcallaghan
+ * @version 02dec2024
  */
 public class ArrayNotes
 {
@@ -60,7 +60,74 @@ public class ArrayNotes
          */
         int[] odds = new int[] {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
         
+        // the 'new' part is optional when using array literals
         boolean[] checks = {true, false, true};
+        
+        /*
+         * ArrayIndexOutOfBoundsException
+         * 
+         * Arrays have a fixed length once initialized. The index specified must refer
+         *      to a valid index. Otherwise, an ArrayIndexOutOfBoundsException is
+         *      generated.
+         */
+        for(int i = 0; i <= odds.length; i++)
+        {
+            //System.out.println(i + ": " + odds[i]);
+        }
+        
+        /*
+         * Array References
+         * 
+         * Variables of type array, contain a reference to the array stored in the
+         *      computer's memory.
+         * 
+         * Assigning one array variable's value to another, copies the reference, not
+         *      the array's elements.
+         */
+        
+        int[] moreOdds = odds;
+        odds[2] = 6;
+        System.out.println(moreOdds[2]);  // prints 6
+        
+        /*
+         * Enhanced For Loops
+         * 
+         * Iterates over each element in the array.
+         * 
+         * Similar to the "for value in ..." structure in Python.
+         * 
+         * The value of the loop variable is the value of each element in the array;
+         *      not the index.
+         */
+        
+        for(int odd : odds)
+        {
+            //odd = 1;  // enhanced for loops cannot directly alter an array's values
+            System.out.println(odd);
+            
+        }
+        
+        /*
+         * Limitations of Enhanced For Loops
+         * 
+         * The local variable (e.g., odd) contains a copy of the value of the element
+         *      in the array.
+         *      
+         * We cannot change the value of the elements in the array.
+         * 
+         */
+        
+        for(int odd : odds)
+        {
+            System.out.println(odd);
+        }
+        
+        
+        
+        
+        
+        
+        
         
         
     }
