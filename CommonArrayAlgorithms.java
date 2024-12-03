@@ -11,17 +11,17 @@ public class CommonArrayAlgorithms
         {
             randomArray[ i ] = (int)( Math.random() * maxValue );
         }
-        
+
         return randomArray;
     }
-    
+
     /*
      * Prints the specified array to System.out
      */
     public static void printArray( int[] array )
     {
         System.out.print("[");
-        
+
         for(int i = 0; i < array.length; i++)
         {
             System.out.print(array[i]);
@@ -30,10 +30,10 @@ public class CommonArrayAlgorithms
                 System.out.print(", ");
             }
         }
-        
+
         System.out.println("]");
     }
-    
+
     /*
      * Array Algorithm #0: Sum and Average
      *  creates an array filled with random numbers
@@ -54,7 +54,7 @@ public class CommonArrayAlgorithms
         }
 
         average = sum / array.length;
-        
+
         printArray( array );
         System.out.println( "sum: " + sum + " average: " + average );
 
@@ -69,6 +69,19 @@ public class CommonArrayAlgorithms
      */
     public static void printElementSeparators()
     {
+        int[] a = createRandomArray(5,10);
+        System.out.print("[");
+
+        for(int i = 0; i < a.length; i++)
+        {
+            System.out.print(a[i]);
+            if(i < a.length - 1)
+            {
+                System.out.print("|");
+            }
+        }
+
+        System.out.println("]");
     }
 
     /*
@@ -80,7 +93,27 @@ public class CommonArrayAlgorithms
      */
     public static int linearSearch( int valueToFind )
     {
-        return 0;
+        boolean foundvalue = false;
+        int[] array = createRandomArray(10, 50);
+        if (valueToFind < 50)
+        {
+            for (int i = 0; i < array.length; i++)
+            {
+                if (array[i] == valueToFind)
+                {
+                    printArray(array);
+                    foundvalue = true;
+                    System.out.println(i);
+                    return i;
+                }
+            }
+            if (foundvalue == false)
+            {
+                printArray(array);
+                System.out.println("-1");
+            }
+        }
+        return -1;
     }
 
     /*
@@ -92,7 +125,19 @@ public class CommonArrayAlgorithms
      */
     public static int countLessThan( int limit )
     {
-        return 0;
+        int[] values = createRandomArray(6, 35);
+        printArray(values);
+        int count = 0;
+        for (int element : values)
+        {
+            if (element < limit)
+            {
+                count++;
+            }
+        }
+        System.out.println("Number of element that are less than the specified value: " + count);
+
+        return count;
     }
 
     /*
@@ -103,7 +148,19 @@ public class CommonArrayAlgorithms
      */
     public static int findMax() 
     {
-        return 0;
+        int[] array = createRandomArray( 10, 50 );
+        int gNum = 0;
+    
+        for(int i = 0; i < array.length; i++)
+        {
+          if(array[i] > gNum)
+          {
+              gNum = array[i];
+          }
+        }
+        printArray( array );
+        System.out.println("Greatest number in this array is: " + gNum);
+        return gNum;
     }
 
     /*
@@ -116,9 +173,29 @@ public class CommonArrayAlgorithms
      */
     public static int[] reverseArray()
     {
-        return null;
+        int[] array = createRandomArray(10, 50);
+        int[] reverse = new int[array.length];
+
+        for (int i = 1; i <= array.length; i++)
+        {
+            reverse[i-1] = array[array.length - i];
+        }
+
+        System.out.println("Old Array: ");
+        for (int element : array)
+        {
+            System.out.println(element);
+        }
+
+        System.out.println("Reverse Array: ");
+        for (int element : reverse)
+        {
+            System.out.println(element);
+        }
+
+        return reverse;
     }
-    
+
     /*
      * Array Algorithm #6: Mode
      *  creates an array filled with random numbers
@@ -133,8 +210,8 @@ public class CommonArrayAlgorithms
          *        create another array to keep track of how many times each value
          *        occurs (index is the number and the value is the number of occurrences)
          */
-         
-         return 0;
+
+        return 0;
     }
 
 }
