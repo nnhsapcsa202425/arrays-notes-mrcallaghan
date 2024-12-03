@@ -47,7 +47,8 @@ public class CommonArrayAlgorithms
         double average = 0;
 
         int[] array = createRandomArray( 10, 50 );
-
+        
+        // total all elements in array
         for( int element : array)
         {
             sum += element;
@@ -69,6 +70,15 @@ public class CommonArrayAlgorithms
      */
     public static void printElementSeparators()
     {
+        int[] array = createRandomArray(10, 101);
+        for (int i = 0; i < array.length; i++) {
+            if (i == 0) {
+                System.out.print(array[i]);
+            }
+            else {
+                System.out.print(" | " + array[i]);
+            }
+        }
     }
 
     /*
@@ -80,7 +90,18 @@ public class CommonArrayAlgorithms
      */
     public static int linearSearch( int valueToFind )
     {
-        return 0;
+         int[] array = createRandomArray(100, 100);
+        int returnvalue = -1;
+        int index = -1;
+        for(int i = 0; i < array.length; i++){
+            if(valueToFind == array[i]){
+                index = i;
+                returnvalue = i;
+            }
+            System.out.println(array[i]);
+        }
+        System.out.println("index: " + index);
+        return returnvalue;
     }
 
     /*
@@ -92,7 +113,24 @@ public class CommonArrayAlgorithms
      */
     public static int countLessThan( int limit )
     {
-        return 0;
+        int count = 0;
+        int maxValue = 10;
+       
+        int[] array = createRandomArray(10, maxValue);
+       
+        for (int num : array)
+        {
+            if (num < limit)
+            {
+                count ++;
+            }
+        }
+       
+        System.out.println("Limit: " + limit);
+        printArray(array);
+        System.out.println("Count: " + count);
+       
+        return count;
     }
 
     /*
@@ -102,6 +140,17 @@ public class CommonArrayAlgorithms
      * @return returns the greatest number in the array
      */
     public static int findMax() 
+    {
+        return 0;
+    }
+    
+    /*
+     * Array Algorithm #4.5: findMin
+     *  creates an array filled with random numbers
+     *  prints the array and the least number
+     * @return returns the least number in the array
+     */
+    public static int findMin() 
     {
         return 0;
     }
