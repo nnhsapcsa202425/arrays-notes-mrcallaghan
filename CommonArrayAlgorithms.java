@@ -93,26 +93,25 @@ public class CommonArrayAlgorithms
      */
     public static int linearSearch( int valueToFind )
     {
-        boolean foundvalue = false;
-        int[] array = createRandomArray(10, 50);
-        if (valueToFind < 50)
+        int[] randomArray = createRandomArray(10, 50);
+        if(valueToFind < 50)
         {
-            for (int i = 0; i < array.length; i++)
+            for(int i = 0; i < randomArray.length; i++)
             {
-                if (array[i] == valueToFind)
+                if(randomArray[i] == valueToFind)
                 {
-                    printArray(array);
-                    foundvalue = true;
-                    System.out.println(i);
+                    System.out.println("Index number: " + i);
+                    printArray(randomArray);
                     return i;
                 }
             }
-            if (foundvalue == false)
-            {
-                printArray(array);
-                System.out.println("-1");
-            }
         }
+        else
+        {
+            System.out.println("enter an integer < 50");
+        }
+        printArray(randomArray);
+        System.out.println("-1");
         return -1;
     }
 
@@ -128,9 +127,9 @@ public class CommonArrayAlgorithms
         int[] values = createRandomArray(6, 35);
         printArray(values);
         int count = 0;
-        for (int element : values)
+        for (int number : values)
         {
-            if (element < limit)
+            if (number < limit)
             {
                 count++;
             }
@@ -150,13 +149,13 @@ public class CommonArrayAlgorithms
     {
         int[] array = createRandomArray( 10, 50 );
         int gNum = 0;
-    
+
         for(int i = 0; i < array.length; i++)
         {
-          if(array[i] > gNum)
-          {
-              gNum = array[i];
-          }
+            if(array[i] > gNum)
+            {
+                gNum = array[i];
+            }
         }
         printArray( array );
         System.out.println("Greatest number in this array is: " + gNum);
@@ -203,15 +202,40 @@ public class CommonArrayAlgorithms
      *  prints the array and the mode
      *  @returns the mode of the elements in the array
      */
-    public static int mode()
+    public static int mode(int maxNum)
     {
         /* hint: when creating the random array, specify parameters that will
          *        likely result in a value being repeated multiple times;
          *        create another array to keep track of how many times each value
          *        occurs (index is the number and the value is the number of occurrences)
          */
+        
 
-        return 0;
+        int[] random = createRandomArray(maxNum, 5);
+        int[] count = new int[maxNum];
+        int max = 0;
+        int mode = 0;
+
+        for (int num : random)
+        {
+            count[num]++;
+        }
+        for (int i = 0; i < count.length; i++)
+        {
+            if (count[i] > max)
+            {
+                max = count[i];
+                mode = i;
+            }
+        }
+
+        for (int i = 0; i < random.length; i++)
+        {
+            System.out.print(random[i] + " ");
+        }
+        System.out.println();
+        System.out.println("This is the mode: " + mode);
+        return mode;
     }
 
 }
