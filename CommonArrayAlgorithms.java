@@ -11,17 +11,17 @@ public class CommonArrayAlgorithms
         {
             randomArray[ i ] = (int)( Math.random() * maxValue );
         }
-        
+
         return randomArray;
     }
-    
+
     /*
      * Prints the specified array to System.out
      */
     public static void printArray( int[] array )
     {
         System.out.print("[");
-        
+
         for(int i = 0; i < array.length; i++)
         {
             System.out.print(array[i]);
@@ -30,10 +30,10 @@ public class CommonArrayAlgorithms
                 System.out.print(", ");
             }
         }
-        
+
         System.out.println("]");
     }
-    
+
     /*
      * Array Algorithm #0: Sum and Average
      *  creates an array filled with random numbers
@@ -47,7 +47,7 @@ public class CommonArrayAlgorithms
         double average = 0;
 
         int[] array = createRandomArray( 10, 50 );
-        
+
         // total all elements in array
         for( int element : array)
         {
@@ -55,7 +55,7 @@ public class CommonArrayAlgorithms
         }
 
         average = sum / array.length;
-        
+
         printArray( array );
         System.out.println( "sum: " + sum + " average: " + average );
 
@@ -90,7 +90,7 @@ public class CommonArrayAlgorithms
      */
     public static int linearSearch( int valueToFind )
     {
-         int[] array = createRandomArray(100, 100);
+        int[] array = createRandomArray(100, 100);
         int returnvalue = -1;
         int index = -1;
         for(int i = 0; i < array.length; i++){
@@ -115,9 +115,9 @@ public class CommonArrayAlgorithms
     {
         int count = 0;
         int maxValue = 10;
-       
+
         int[] array = createRandomArray(10, maxValue);
-       
+
         for (int num : array)
         {
             if (num < limit)
@@ -125,11 +125,11 @@ public class CommonArrayAlgorithms
                 count ++;
             }
         }
-       
+
         System.out.println("Limit: " + limit);
         printArray(array);
         System.out.println("Count: " + count);
-       
+
         return count;
     }
 
@@ -141,9 +141,21 @@ public class CommonArrayAlgorithms
      */
     public static int findMax() 
     {
-        return 0;
+        int [] x = createRandomArray(10, 50);
+        int maxNum  = Integer.MIN_VALUE;
+
+        for (int i = 0; i < x.length; i++)
+        {
+            if (x[i] > maxNum)
+            {
+                maxNum = x[i];
+            }
+        }
+        printArray(x);
+        System.out.println(maxNum);
+        return maxNum; 
     }
-    
+
     /*
      * Array Algorithm #4.5: findMin
      *  creates an array filled with random numbers
@@ -152,7 +164,23 @@ public class CommonArrayAlgorithms
      */
     public static int findMin() 
     {
-        return 0;
+        int[] values = createRandomArray(10, 100);
+
+        printArray(values);
+
+        int leastNumber = Integer.MAX_VALUE;
+
+        for (int number : values)
+        {
+            if (number < leastNumber)
+            {
+                leastNumber = number;
+            }
+        }
+
+        System.out.println(leastNumber);
+
+        return leastNumber;
     }
 
     /*
@@ -165,9 +193,18 @@ public class CommonArrayAlgorithms
      */
     public static int[] reverseArray()
     {
-        return null;
+        int[] array = createRandomArray (10, 50);
+        int [] array2 = new int [array.length];
+        for (int i=0; i < array.length ;i++)
+        {
+            array2[i] = array[array.length-i-1];
+        }
+
+        printArray(array);
+        printArray(array2);
+        return array2;
     }
-    
+
     /*
      * Array Algorithm #6: Mode
      *  creates an array filled with random numbers
@@ -182,8 +219,30 @@ public class CommonArrayAlgorithms
          *        create another array to keep track of how many times each value
          *        occurs (index is the number and the value is the number of occurrences)
          */
-         
-         return 0;
+
+        int[] x = createRandomArray(10,10);
+        int[] countArr = new int[10];
+
+        int maxAmt = 0;
+        int mode = 0;
+        for(int val: x) {
+
+            countArr[val]+=1;
+            if(countArr[val] > maxAmt) {
+
+                maxAmt = countArr[val];
+                mode = val;
+            }
+        }
+
+
+        System.out.println("-");
+        printArray(x);
+        printArray(countArr);
+        System.out.println("Mode:" + mode);
+        System.out.println(maxAmt);
+
+        return mode;
     }
 
 }
