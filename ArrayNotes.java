@@ -179,10 +179,6 @@ public class ArrayNotes
         }
     }
     
-    
-    
-    
-    
-    
+       
     
 }
