@@ -1,4 +1,5 @@
 import java.util.GregorianCalendar;
+import java.awt.Rectangle;
 
 /**
  * Write a description of class Notes here.
@@ -166,6 +167,23 @@ public class ArrayNotes
         for(GregorianCalendar calendar : calendars)
         {
             System.out.println(calendar);
+        }
+        
+        Rectangle[] rects = new Rectangle[3];
+        int[] startX = {0, 50, 0};
+        int[] startY = {0, 50, 0};
+        int[] widths = {50, 50, 100};
+        int[] heights = {50, 50, 100};
+        
+        for(int i = 0; i < rects.length; i++)
+        {
+            rects[i] = new Rectangle(startX[i], startY[i], widths[i], heights[i]);
+        }
+        
+        
+        for (Rectangle rect : rects)
+        {
+            System.out.println(rect);
         }
     }
     
